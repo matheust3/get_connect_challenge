@@ -1,0 +1,39 @@
+services:
+  get_connect_dev_container:
+    privileged: true # Para invocar o CLI docker
+    user: developer
+    container_name: get_connect_dev_container
+    image: get_connect_dev_container
+    build:
+      context: ..
+      dockerfile: ./.devcontainer/Dockerfile
+      args:
+        - HOST_DOCKER_GROUP_ID=${HOST_DOCKER_GROUP_ID}
+    restart: on-failure
+    volumes:
+      - type: bind
+        source: ..
+        target: /home/developer/get_connect_dev
+      #Para invocar o CLI do docker
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    network_mode: 'host'
+    #Quando essa instrução terminar o container fecha
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    #Sobe um banco de dados
+    depends_on:
+      - get_connect_dev_database
+  get_connect_dev_database:
+    container_name: get_connect_dev_database
+    image: postgres:15.0
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - type: bind
+        source: ./database
+        target: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
