@@ -32,7 +32,10 @@ export class MovieController {
       if (result.Response === 'True') {
         // Salva essa busca
         await this.searchRepository.create(new SearchStr({ movieId: result.imdbID, search: title }))
-        await this.repository.create(new Movie(result))
+        const exists = await this.repository.exists(result.imdbID)
+        if(!exists){
+          await this.repository.create(result)
+        }
       }
       return result
     }
