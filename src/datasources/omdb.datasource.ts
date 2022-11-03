@@ -1,31 +1,26 @@
-import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
-import {juggler} from '@loopback/repository';
+import { inject, lifeCycleObserver, LifeCycleObserver } from '@loopback/core'
+import { juggler } from '@loopback/repository'
 
 const config = {
   name: 'Omdb',
   connector: 'rest',
   options: {
     headers: {
-      accept: 'application/json',
-      'content-type': 'application/json',
-    },
-    timeout: 15000,
-  },
-  operations: [{
-    template: {
-       method: "GET",
-       url: "https://www.omdbapi.com/?apikey=c97bdf5d&t=avatar"
-      //  "query":{
-      //   "apikey": "c97bdf5d",
-      //   "t": "{title}"
-      //  }
-    },
-    functions: {
-       getTitle: []
+      'content-type': 'application/json'
     }
- }],
-  crud: false
-};
+  },
+  operations: [
+    {
+      template: {
+        method: 'GET',
+        url: 'http://www.omdbapi.com/?apikey=c97bdf5d&t={title}'
+      },
+      functions: {
+        getTitle: ['title']
+      }
+    }
+  ]
+}
 
 // Observe application's life cycle to disconnect the datasource when
 // application is stopped. This allows the application to be shut down
@@ -34,13 +29,13 @@ const config = {
 @lifeCycleObserver('datasource')
 export class OmdbDataSource extends juggler.DataSource
   implements LifeCycleObserver {
-  static dataSourceName = 'Omdb';
-  static readonly defaultConfig = config;
+  static dataSourceName = 'Omdb'
+  static readonly defaultConfig = config
 
-  constructor(
-    @inject('datasources.config.Omdb', {optional: true})
-    dsConfig: object = config,
+  constructor (
+    @inject('datasources.config.Omdb', { optional: true })
+    dsConfig: object = config
   ) {
-    super(dsConfig);
+    super(dsConfig)
   }
 }

@@ -1,20 +1,16 @@
 // Uncomment these imports to begin using these cool features!
 
-import { inject, service } from "@loopback/core";
-import { get, Request, RestBindings } from "@loopback/rest";
-import { OmdbServiceProxy } from "../services";
-
-// import {inject} from '@loopback/core';
-
+import { inject } from '@loopback/core'
+import { get, param } from '@loopback/rest'
+import { Movie } from '../models'
+import { OmdbServiceProxy } from '../services'
 
 export class QueryController {
-  constructor(
-    @inject('services.OmdbServiceProxy') private service: OmdbServiceProxy ) { }
+  constructor (
+    @inject('services.OmdbServiceProxy') protected service: OmdbServiceProxy) { }
 
   @get('/query')
-  request(): object{
-    return{
-      test: this.service.getTitle()
-    }
+  async query (@param.query.string('title') title: string): Promise<Movie> {
+    return await this.service.getTitle(encodeURIComponent(title))
   }
 }
