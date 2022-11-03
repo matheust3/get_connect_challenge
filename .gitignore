@@ -64,3 +64,4 @@ typings/
 *.tsbuildinfo
 
 .devcontainer/database
+database/local.json
