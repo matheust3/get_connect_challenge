@@ -7,12 +7,18 @@ import { MovieRepository } from '../repositories'
 import { SearchStrRepository } from '../repositories/search-str.repository'
 import { OmdbServiceProxy } from '../services'
 
-export class QueryController {
+export class MovieController {
   constructor (
     @inject('services.OmdbServiceProxy') protected service: OmdbServiceProxy,
     @inject('repositories.MovieRepository') protected repository: MovieRepository,
     @inject('repositories.SearchStrRepository') protected searchRepository: SearchStrRepository
   ) { }
+
+
+  @get('/history')
+  async history():Promise<Movie[]>{
+    return await this.repository.find()
+  }
 
   @get('/query')
   async query (@param.query.string('title') title: string): Promise<Movie> {

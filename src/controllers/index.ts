@@ -1,2 +1,3 @@
+export * from './movie.controller';
 export * from './ping.controller';
-export * from './query.controller';
+
