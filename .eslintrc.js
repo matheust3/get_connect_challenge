@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    '@loopback/eslint-config',
+    // '@loopback/eslint-config',
     "standard",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",

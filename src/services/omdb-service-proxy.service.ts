@@ -4,7 +4,7 @@ import { OmdbDataSource } from '../datasources'
 import { Movie } from '../models'
 
 export interface OmdbServiceProxy {
-  getTitle: (title: string) => Promise<Movie>
+  getTitle: (title: string) => Promise<Movie & { Response: string }>
 }
 
 export class OmdbServiceProxyProvider implements Provider<OmdbServiceProxy> {
@@ -14,6 +14,7 @@ export class OmdbServiceProxyProvider implements Provider<OmdbServiceProxy> {
     protected dataSource: OmdbDataSource = new OmdbDataSource()
   ) {}
 
+  
   async value (): Promise<OmdbServiceProxy> {
     return await getService(this.dataSource)
   }

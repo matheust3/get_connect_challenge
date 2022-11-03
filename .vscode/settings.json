@@ -17,17 +17,17 @@
     "**/CVS": true,
     "dist": true,
   },
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
+  // "files.insertFinalNewline": true,
+  // "files.trimTrailingWhitespace": true,
   "cSpell.language": "en,pt,pt-BR",
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "typescript.preferences.quoteStyle": "single",
-  "eslint.run": "onSave",
-  "eslint.nodePath": "./node_modules",
-  "eslint.validate": [
-    "javascript",
-    "typescript"
-  ],
+  // "typescript.tsdk": "./node_modules/typescript/lib",
+  // "typescript.preferences.quoteStyle": "single",
+  // "eslint.run": "onSave",
+  // "eslint.nodePath": "./node_modules",
+  // "eslint.validate": [
+  //   "javascript",
+  //   "typescript"
+  // ],
   "cSpell.words": [
     "apikey"
   ]
