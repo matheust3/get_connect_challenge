@@ -3,6 +3,10 @@
 This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
 [initial project layout](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
 
+## Explicação do código
+
+<video src='https://github.com/matheust3/get_connect_challenge/raw/master/Explica%C3%A7%C3%A3o%20do%20c%C3%B3digo.webm' width=180/>
+
 ## Install dependencies
 
 By default, dependencies were installed when this application was generated.
