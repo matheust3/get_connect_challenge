@@ -10,6 +10,8 @@ services:
       args:
         - HOST_DOCKER_GROUP_ID=${HOST_DOCKER_GROUP_ID}
     restart: on-failure
+    environment:
+      - OMDB_API_KEY=c97bdf5d
     volumes:
       - type: bind
         source: ..
@@ -31,6 +33,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - OMDB_API_KEY=c97bdf5d
     volumes:
       - type: bind
         source: ./database
