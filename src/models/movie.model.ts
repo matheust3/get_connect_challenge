@@ -10,11 +10,6 @@ export class Movie extends Entity {
   })
     imdbID: string
 
-  @property({
-    type: 'string'
-  })
-    response?: string
-
   // Indexer property to allow additional data
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [prop: string]: any;
