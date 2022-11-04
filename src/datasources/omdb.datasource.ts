@@ -13,7 +13,7 @@ const config = {
     {
       template: {
         method: 'GET',
-        url: 'http://www.omdbapi.com/?apikey=c97bdf5d&t={title}'
+        url: `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&t={title}`
       },
       functions: {
         getTitle: ['title']
