@@ -5,7 +5,7 @@ This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/
 
 ## Explicação do código
 
-<video src='https://github.com/matheust3/get_connect_challenge/raw/master/Explica%C3%A7%C3%A3o%20do%20c%C3%B3digo.webm' width=180/>
+[Vídeo](https://github.com/matheust3/get_connect_challenge/raw/master/Explica%C3%A7%C3%A3o%20do%20c%C3%B3digo.webm)
 
 ## Install dependencies
 
